@@ -752,7 +752,7 @@ function VM.executeState(L)
 				local prev = ncl.uprefs[i]
 				if ncl == kv and prev and rawequal(prev.stack[prev.v], uv.stack[uv.v]) then
 					i = i + 1
-					--continue
+					continue
 				end
 				
 				if ncl == kv and not kv.preload then
@@ -760,7 +760,7 @@ function VM.executeState(L)
 					stack[base + insn.A] = Functions.wrapClosure(L, ncl)
 					
 					i = 0
-					--continue
+					continue
 				end
 				
 				ncl.uprefs[i] = uv
